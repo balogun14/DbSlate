@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.next/
+out/
+core/dist/
+cli/dist/
+web/.next/
+web/out/
+package-lock.json
+*.db
+*.sqlite
+*.sql
