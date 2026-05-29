@@ -33,12 +33,12 @@ DbSlate is structured as a monorepo workspace for modularity:
 
 ```mermaid
 graph TD
-    DB[(PostgreSQL/SQLite)] -->|Introspect| Core[@dbslate/core]
-    Core -->|Export JSON| SchemaJSON[schema.json]
-    SchemaJSON -->|Visual UI| WebDashboard[Next.js Visual Designer]
-    WebDashboard -->|Diff & Generate| SQL[migration.sql]
-    WebDashboard -->|Export Models| Models[TypeScript / C# / Python / Go]
-    CLI[dbslate CLI] -->|Diff & Generate| SQL
+    DB[("PostgreSQL / SQLite")] -->|Introspect| Core["@dbslate/core"]
+    Core -->|Export JSON| SchemaJSON["schema.json"]
+    SchemaJSON -->|Visual UI| WebDashboard["Next.js Visual Designer"]
+    WebDashboard -->|Diff & Generate| SQL["migration.sql"]
+    WebDashboard -->|Export Models| Models["TypeScript / C# / Python / Go"]
+    CLI["dbslate CLI"] -->|Diff & Generate| SQL
     SQL -->|Apply| DB
 ```
 
