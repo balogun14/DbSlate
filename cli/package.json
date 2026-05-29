@@ -1,0 +1,14 @@
+{
+  "name": "@dbslate/cli",
+  "version": "1.0.0",
+  "type": "module",
+  "bin": {
+    "dbslate": "./dist/bin.js"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@dbslate/core": "file:../core"
+  }
+}
