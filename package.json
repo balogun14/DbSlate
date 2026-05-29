@@ -1,0 +1,48 @@
+{
+  "name": "dbslate-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Safe database schema introspection, diffing, and migration tool with visual UI and model generators.",
+  "workspaces": [
+    "core",
+    "cli",
+    "web"
+  ],
+  "scripts": {
+    "dev:web": "npm run dev --workspace=web",
+    "build:core": "tsc -b core",
+    "build:cli": "tsc -b cli",
+    "build:all": "npm run build:core && npm run build:cli && npm run build --workspace=web",
+    "start:cli": "node cli/dist/bin.js",
+    "test": "node core/dist/test/diff.test.js",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
+    "format": "prettier --write \"**/*.{ts,tsx,js,json,md,css}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,json,md,css}\"",
+    "check-comments": "node scripts/check-comments.js",
+    "git:commit-each": "node scripts/git-commit-helper.js",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "@typescript-eslint/eslint-plugin": "^7.1.0",
+    "@typescript-eslint/parser": "^7.1.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
+    "typescript": "^5.3.3"
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "**/*.{json,md,css}": [
+      "prettier --write"
+    ]
+  }
+}
